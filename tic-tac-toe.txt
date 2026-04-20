@@ -4,3 +4,5 @@ Refactored square into separate component, rendered a board of squares all numbe
 Added value prop to square component and passed in values when called in board, rendered board numbered correctly.
 Created handleClick function in square component, called onClick, logged when any button was clicked.
 Removed value prop, created value as state, and used setValue to change state in handleClick. This rendered an empty board where clicked buttons displayed 'X'
+Refactored state so that it is tracked in the board. Created state array and passed down value, handleClick as props. This rendered a board where clicked buttons displayed 'X'
+Added state variable to track whether X or O should be next. Added logic to handleClick to alternate and prevent replacing placed markers. Rendered a board that allows for correct turn taking and illegal move preventing.
