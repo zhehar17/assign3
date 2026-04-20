@@ -1,0 +1,2 @@
+Added variable calculated from the squares state variable telling the turn, displayed to screen. Displayed the same tic-tac-toe game with a working turn counter.
+Added state variable firstClick containing null or the index of the first click. Added logic using this to handle moving pieces with two clicks, without verification. Displayed a chorus lapilli game with no move verification.
