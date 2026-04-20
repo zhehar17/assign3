@@ -6,3 +6,4 @@ Created handleClick function in square component, called onClick, logged when an
 Removed value prop, created value as state, and used setValue to change state in handleClick. This rendered an empty board where clicked buttons displayed 'X'
 Refactored state so that it is tracked in the board. Created state array and passed down value, handleClick as props. This rendered a board where clicked buttons displayed 'X'
 Added state variable to track whether X or O should be next. Added logic to handleClick to alternate and prevent replacing placed markers. Rendered a board that allows for correct turn taking and illegal move preventing.
+Added function that determines if there is a line completed by a player and returns the winning player if so. Added status div displaying if a player won or the next player's turn based on the result of the function. Rendered a tic-tac-toe game displaying the next player and the winner if applicable!
