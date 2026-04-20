@@ -38,8 +38,16 @@ export default function Board() {
 
       nextSquares[firstClick] = null;
       setFirstClick(null);
+
+      if ((squares[firstClick] !== 'X' && xIsNext) || (squares[firstClick] !== 'O' && !xIsNext) || squares[i] !== null) return;
+      if (!checkAdjacent(firstClick, i)) return;
     }
     nextSquares[i] = xIsNext ? 'X' : 'O';
+
+    if (turn > 3) {
+      if (!calculateWinner(nextSquares) && ((xIsNext && squares[4] === 'X' && nextSquares[4] === 'X') || (!xIsNext && squares[4] === 'O' && nextSquares[4] === 'O'))) return;
+    }
+
     setSquares(nextSquares);
     setXIsNext(prev => !prev);
   }
@@ -85,4 +93,17 @@ export default function Board() {
     }
     return null;
   }
+}
+
+function checkAdjacent(firstClick, i) {
+  const tileIndices = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8]
+  ];
+
+  const fi = Math.floor(firstClick / 3);
+  const fj = firstClick % 3;
+
+  return (fi < 2 && i === tileIndices[fi + 1][fj]) || (fi > 0 && i === tileIndices [fi - 1][fj]) || fj < 2 && (i === tileIndices[fi][fj + 1]) || (fj > 0 && i === tileIndices[fi][fj - 1]) || (fi < 2 && fj > 0 && i === tileIndices[fi + 1][fj - 1]) || (fi < 2 && fj < 2 && i === tileIndices[fi + 1][fj + 1]) || (fi > 0 && fj > 0 && i === tileIndices[fi - 1][fj - 1]) || (fi > 0 && fj < 2 && i === tileIndices[fi - 1][fj + 1]);
 }
